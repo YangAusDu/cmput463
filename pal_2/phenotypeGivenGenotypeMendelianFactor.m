@@ -48,8 +48,8 @@ phenotypeFactor = struct('var', [], 'card', [], 'val', []);
 % Fill in phenotypeFactor.card.  This should be a 1-D row vector.
 phenotypeFactor.var = [phenotypeVar,genotypeVar];
 phenotypeFactor.card = [ones(1,length(phenotypeVar))*2, ones(1,length(genotypeVar))* 3];
-phenotypeFactor.val = zeros(1, prod(phenotypeFactor.card));
-phenotypeFactor.val = [1,0,1,0,0,1]
+%phenotypeFactor.val = zeros(1, prod(phenotypeFactor.card));
+phenotypeFactor.val = [1,0,1,0,0,1];
 
 
 % Replace the zeros in phentoypeFactor.val with the correct values.
