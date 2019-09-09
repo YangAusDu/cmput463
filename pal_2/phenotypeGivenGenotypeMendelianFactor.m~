@@ -12,7 +12,9 @@ function phenotypeFactor = phenotypeGivenGenotypeMendelianFactor(isDominant, gen
 % maps to heterozygous, and assignment 3 maps to homozygous recessive.  For
 % example, say that there is a gene with two alleles, dominant allele A and
 % recessive allele a.  Assignment 1 would map to AA, assignment 2 would
-% make to Aa, and assignment 3 would map to aa.  For the phenotypes, 
+% make to Aa, and assignment 3 would map to aa.
+
+%For the phenotypes, 
 % assignment 1 maps to having the physical trait, and assignment 2 maps to 
 % not having the physical trait.
 %
@@ -45,9 +47,14 @@ phenotypeFactor = struct('var', [], 'card', [], 'val', []);
 % Fill in phenotypeFactor.var.  This should be a 1-D row vector.
 % Fill in phenotypeFactor.card.  This should be a 1-D row vector.
 phenotypeFactor.var = [phenotypeVar,genotypeVar];
-phenotypeFactor.card = [ones(1,length()),ones(1,length(genotypeVar))*4];
-
+phenotypeFactor.card = [ones(1,length(phenotypeVar))*2, ones(1,length(genotypeVar))* 3];
 phenotypeFactor.val = zeros(1, prod(phenotypeFactor.card));
+for i = 1:6
+    disp(IndexToAssignment(i,phenotypeFactor.card))
+end
+
+
+
 % Replace the zeros in phentoypeFactor.val with the correct values.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
